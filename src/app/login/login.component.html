@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row mt-5">
+         <h3 class="text-center text-danger">Login</h3>
+           <div class="col-4 ">
+            <img src="https://cdn.pixabay.com/photo/2014/02/23/11/09/strawberry-272810_1280.jpg" alt="" height="200" width="250" class="position: relative">
+           </div>
+        <div class="col-4 mt-2 d-flex justify-content-center border py-4 rounded ">
+           <form  [formGroup]="loginForm" (ngSubmit)="login()">
+                <input type="text" placeholder="Enter your email"class="form-control mb-4" formControlName="email">
+                <input type="password" placeholder="Enter your password" class="form-control mb-4" formControlName='password'>
+                <div class="text-center">
+   <button class="rounded btn btn-outline-light bg-danger px-3" type="submit">Login</button>
+                </div>
+             
+            </form>
+        </div>
+        <div class="col-4">
+            <img src="https://cdn.pixabay.com/photo/2012/04/11/17/31/vegetables-29063_1280.png" alt="" height="200">
+        </div>
+    </div>
+    <div class="mt-5">
+        <img src="https://cdn.pixabay.com/photo/2014/11/20/13/58/blueberry-539148_1280.png " alt="" height="400" width="800">
+    </div>
+</div>

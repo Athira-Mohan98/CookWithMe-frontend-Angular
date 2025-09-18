@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg bg-danger navbar-dark px-4">
+  <a class="navbar-brand" href="#"><span><img src="https://cdn.pixabay.com/photo/2016/10/27/08/48/chef-1773672_1280.png"
+        alt="" height="40"></span>CookWithMe</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item"><a class="nav-link" routerLink="/">Home</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/All-Recipies">Recipes</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/about">About</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/contact">Contact</a></li>
+    </ul>
+    <form action="" class="d-flex" role="search">
+      <div class="dropdown">
+        @if(isUserName){
+        <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Hi{{isUserName}}
+        </button>
+        }
+        @else {
+        <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+         <i class="fa-solid fa-user"></i>
+        </button>
+        }
+        <ul class="dropdown-menu">
+          @if (isLoggedIn) {
+          <li> <a class="dropdown-item" routerLink="/profile">View Profile</a></li>
+          <li><a class="dropdown-item" routerLink="/Saved-Recipies">View Collections</a></li>
+          <li><a (click)="logout()" class="dropdown-item" routerLink="/">Logout</a></li>
+          }
+          @else {
+          <li> <a class="dropdown-item" routerLink="/login">login</a></li>
+          <li><a class="dropdown-item" routerLink="/register">Register</a></li>
+          }
+        </ul>
+      </div>
+    </form>
+
+  </div>
+</nav>

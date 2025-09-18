@@ -1,0 +1,114 @@
+<app-header></app-header>
+ <section class="bg-danger text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-5 fw-bold">The Easiest Way To Make Your Favorite Meal</h1>
+      <p class="lead">Discover 100+ recipes in your hand with the best recipe. Help you to find the easiest way to cook.</p>
+      <a routerLink="/All-Recipies" class="btn btn-light btn-lg">Explore Our Recipes</a>
+    </div>
+  </section>
+
+  <!-- Popular Recipes -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-3">Popular Recipe of the Week</h2>
+      <p class="text-center text-muted mb-4">Our most popular recipes of the week</p>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://plantbasedonabudget.com/wp-content/uploads/2013/10/Peanut-Bliss-Noodle-Bowl-Plant-Based-on-a-Budget-10.jpg" class="card-img-top" alt="Vegetarian Stir-Fry" width="150" height="300">
+            <div class="card-body">
+              <h5 class="card-title text-danger text-center fw-semibold">Vegetarian Stir-Fry</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://tse3.mm.bing.net/th/id/OIP.wySGofV65Frb4qA9xIXXngHaLH?r=0&w=800&h=1200&rs=1&pid=ImgDetMain&o=7&rm=3" class="card-img-top" alt="Chocolate Chip Cookies" width="150" height="300">
+            <div class="card-body">
+              <h5 class="card-title text-danger text-center fw-semibold">Chocolate Chip Cookies</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto:eco/https://storage.googleapis.com/gen-atmedia/3/2015/09/308787bbdf444eb961ade3990cb8ae509f208178.jpeg" class="card-img-top" alt="Chicken Alfredo Pasta" width="150" height="300">
+            <div class="card-body">
+              <h5 class="card-title text-danger text-center fw-semibold">Chicken Alfredo Pasta</h5>
+            </div>
+          </div>
+        </div>
+     
+      </div>
+       <div class="row g-4 mt-2 ">
+        <div class="col-md-4 ">
+          <div class="card">
+            <img src="https://cdn.pixabay.com/photo/2016/04/25/07/32/chicken-cutlet-1351331_1280.jpg" class="card-img-top rounded-2xl" alt="Vegetarian Stir-Fry" width="150" height="300">
+            <div class="card-body">
+              <h5 class="card-title text-danger text-center fw-semibold">Chicken schnitzel</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://cdn.pixabay.com/photo/2020/04/09/10/29/chickpeas-5020827_1280.jpg" class="card-img-top" alt="Chocolate Chip Cookies" width="150" height="300">
+            <div class="card-body">
+              <h5 class="card-title text-danger text-center fw-semibold">Chickpeas</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://cdn.pixabay.com/photo/2017/12/10/14/47/pizza-3010062_1280.jpg" class="card-img-top" alt="Chicken Alfredo Pasta" width="150" height="300">
+            <div class="card-body">
+              <h5 class="card-title text-danger text-center fw-semibold">Chicken Pizza</h5>
+            </div>
+          </div>
+        </div>
+     
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero Section -->
+  <section class="bg-light text-dark text-right py-3">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mx-auto">
+          <h1 class="display-5 fw-bold">50+ Recipes That Very Quick And Fast</h1>
+          <p class="lead">Find the perfect recipe to start your day with the quick and easiest way.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- App Download Section -->
+  <section class="bg-danger text-white py-3">
+    <div class="container text-center">
+      <h2 class="mb-4">Download App</h2>
+      <p class="mb-4">Download the App from App Store or Google Play for a better experience</p>
+      <div class="d-flex justify-content-center gap-3">
+        <a href="#" class="btn btn-light">Google Play</a>
+        <a href="#" class="btn btn-light">App Store</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+ <section class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Client Testimonials</h2>
+    <marquee behavior="scroll" direction="left" scrollamount="5">
+      <div class="d-flex gap-4 px-3">
+        @for (item of recipie; track $index) {
+          <div class="card shadow-sm border-0 text-center" style="min-width: 250px; max-width: 250px;">
+            <div class="card-body bg-light rounded">
+              <h5 class="card-title  fw-bold mb-2">{{ item.name }}</h5>
+              <p class="card-text text-muted fst-italic">{{ item.message || 'No message provided' }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </marquee>
+  </div>
+</section>
+  <app-footer></app-footer>

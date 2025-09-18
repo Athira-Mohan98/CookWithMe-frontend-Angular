@@ -1,0 +1,66 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row p-5">
+    <div class="col">
+      <h3 class="text-danger">Filter</h3>
+    </div>
+    <div class="col">
+      <h3 class="text-danger" >All Recipies</h3>
+    </div>
+    <div class="col">
+      <input type="text" placeholder="Search recipies" class="form-control border-danger">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-2">
+
+      <div class="mb-3">
+        <button class="fs-6 ml-2 btn">All</button> <br>
+        <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+          Cuisine Type
+        </button>
+        <div class="collapse" id="collapseExample1">
+          <div class="card-body p-3">
+            Some placeholder content for the collapse component. This panel is hidden by default but revealed when the
+            user activates the relevant trigger.
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+          Meal Type
+        </button>
+        <div class="collapse" id="collapseExample2">
+          <div class="card-body p-3">
+            Some placeholder content for the collapse component. This panel is hidden by default but revealed when the
+            user activates the relevant trigger.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="container">
+    
+        <div class="row g-4">
+         @for (item of allRecipies; track $index) {
+           <div class="col-md-4">
+            <div class="card" (click)="viewRecipie(item.id)">
+              <img
+                src={{item.image}}
+                class="card-img-top" alt="Vegetarian Stir-Fry" width="150" height="300">
+              <div class="card-body">
+                <h5 class="card-title text-danger text-center fw-semibold">{{item.name}}</h5>
+              </div>
+            </div>
+          </div>
+         }
+
+      </div>
+    </div>
+  </div>
+</div>
