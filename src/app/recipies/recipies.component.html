@@ -1,5 +1,6 @@
 <app-header></app-header>
-<div class="container">
+<div class="container mt-3">
+  {{today | date:'short'}}
   <div class="row p-5">
     <div class="col">
       <h3 class="text-danger">Filter</h3>
@@ -8,7 +9,7 @@
       <h3 class="text-danger" >All Recipies</h3>
     </div>
     <div class="col">
-      <input type="text" placeholder="Search recipies" class="form-control border-danger">
+      <input type="text" [(ngModel)]="SearchKey" placeholder="Search recipies" class="form-control border-danger">
     </div>
   </div>
 
@@ -16,16 +17,20 @@
     <div class="col-2">
 
       <div class="mb-3">
-        <button class="fs-6 ml-2 btn">All</button> <br>
-        <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="collapse"
+        <button class="fs-6 ml-2 btn" (click)="getAllrecipies()">All</button> <br>
+        <button  class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="collapse"
           data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
           Cuisine Type
         </button>
         <div class="collapse" id="collapseExample1">
-          <div class="card-body p-3">
-            Some placeholder content for the collapse component. This panel is hidden by default but revealed when the
-            user activates the relevant trigger.
-          </div>
+          @for (item of cuisineType; track $index) {
+            <button (click)="filterRecipie('cuisine',item)" class="btn btn-outline-light  text-dark m-2">
+             
+ {{item}}
+             
+          
+          </button>
+          }
         </div>
       </div>
 
@@ -35,10 +40,14 @@
           Meal Type
         </button>
         <div class="collapse" id="collapseExample2">
-          <div class="card-body p-3">
-            Some placeholder content for the collapse component. This panel is hidden by default but revealed when the
-            user activates the relevant trigger.
-          </div>
+           @for (item of updatedMealType; track $index) {
+            <button (click)="filterRecipie('mealType',item)" class="btn btn-outline-light  text-dark m-2">
+             
+ {{item}}
+             
+          
+          </button>
+          }
         </div>
       </div>
     </div>
@@ -47,9 +56,9 @@
       <div class="container">
     
         <div class="row g-4">
-         @for (item of allRecipies; track $index) {
+         @for (item of allRecipies | search :SearchKey | paginate: { itemsPerPage: 10, currentPage: p }; track $index) {
            <div class="col-md-4">
-            <div class="card" (click)="viewRecipie(item.id)">
+            <div class="card" (click)="viewRecipie(item._id)">
               <img
                 src={{item.image}}
                 class="card-img-top" alt="Vegetarian Stir-Fry" width="150" height="300">
@@ -61,6 +70,8 @@
          }
 
       </div>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
     </div>
   </div>
 </div>
