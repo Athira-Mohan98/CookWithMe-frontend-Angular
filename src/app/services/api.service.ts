@@ -68,4 +68,27 @@ return {headers}
  getdownloadedRecipie(){
    return this.http.get(`${this.serverUrl}/api/getdownloadedRecipies`,this.appendToken())
   }
+
+  updateUser(reqBody:any){
+   return this.http.post(`${this.serverUrl}/api/userProfile/`,reqBody,this.appendToken())
+  }
+
+  getallUsers(){
+   return this.http.get(`${this.serverUrl}/api/getallusers`,this.appendToken())
+  }
+
+  getalldownloads(){
+   return this.http.get(`${this.serverUrl}/api/getalldownloads`,this.appendToken())
+  }
+
+   addRecipie(reqBody:any){
+   return this.http.post(`${this.serverUrl}/api/admin/addrecipie`,reqBody,this.appendToken())
+  }
+
+ updateRecipie(recipieId:string, reqBody:any){
+   return this.http.put(`${this.serverUrl}/api/admin/updateRecipie/${recipieId}`,reqBody,this.appendToken())
+  }
+   deleteRecipie(recipieId:string){
+   return this.http.delete(`${this.serverUrl}/api/admin/deleteRecipie/${recipieId}`,this.appendToken())
+  }
 }
